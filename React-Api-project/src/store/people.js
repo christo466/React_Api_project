@@ -10,6 +10,7 @@ const initialState = {
 export const getPeopleData = createAsyncThunk("peopleDatagetter", async () => {
   const response = await getPEOPLEDATA();
   console.log(response, "response");
+  
   return response?.data;
 });
 
@@ -27,6 +28,7 @@ const PeopleDataSlice = createSlice({
         state.status = "succeeded";
         console.log(action, "Action");
         state.data = action.payload;
+        
       })
       .addCase(getPeopleData.rejected, (state) => {
         state.status = "failed";
