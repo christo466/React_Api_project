@@ -4,7 +4,7 @@ import './Home.css';
 import Header from '../Header';
 import Footer from '../Footer';
 import Counter from './components/counter'
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function MyButton() {
   return (
@@ -72,6 +72,10 @@ export default function Profile() {
   function handleClick1() {
     setCount(count + 1);
   }
+  const navigate = useNavigate();
+  const goToDashboard = () => {
+    navigate('/dashboard'); // Navigates to the dashboard page
+  };
 
   const listItems = products.map(product =>
     <li
@@ -91,9 +95,12 @@ export default function Profile() {
       <Header />
        
      </div>
-     <div>
+     {/* <div>
      <Link to="/dashboard">People info</Link>
-     </div>
+     </div> */}
+     <button onClick={goToDashboard} className="navigate-button">
+          Go to People Info
+        </button>
      <main className="home-content">
       <div className="bordered-div">
         <h1>{user.name}</h1>

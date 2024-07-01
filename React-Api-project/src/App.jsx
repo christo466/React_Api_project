@@ -38,6 +38,7 @@ function App() {
         hasMore={remainingData.length > 0}  setData={setData} />} />
         <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} />
+      
       </Routes>
     </Router>
   );

@@ -1,6 +1,7 @@
 import  { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPeopleData } from "../../store/people.js";
+import { useNavigate } from 'react-router-dom';
 import {
   Table,
   TableBody,
@@ -37,6 +38,10 @@ const Dashboard = () => {
     }
   }, [peopleData]); // Runs when peopleData changes
 
+  const navigate = useNavigate();
+  const goToHome = () => {
+    navigate('/'); // Navigates to the dashboard page
+  };
   const addNextData = () => {
     // Add the next item from peopleData to displayedData
     if (currentIndex < peopleData.length) {
@@ -74,15 +79,21 @@ const Dashboard = () => {
               </TableBody>
             </Table>
           </TableContainer>
-          <Button
-            variant="contained"
-            color="secondary"
-            onClick={addNextData}
-            style={{ marginTop: "1rem" }}
-            disabled={currentIndex >= peopleData.length}
-          >
-            Load Next
-          </Button>
+          <div className="button-container">
+        <button onClick={goToHome} className="navigate-button">
+          Home
+        </button>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={addNextData}
+          className="load-next-button"
+          disabled={currentIndex >= peopleData.length}
+        >
+          Load Next
+        </Button>
+      </div>
+          
         </>
       )}
     </div>

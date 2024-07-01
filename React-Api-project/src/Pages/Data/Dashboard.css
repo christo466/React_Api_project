@@ -1,4 +1,4 @@
-/* Dashboard.css */
+
 
 .dashboard-container {
     display: flex;
@@ -17,7 +17,7 @@
   .table-container {
     max-width: 80%;
     margin: 0 auto;
-    margin-bottom: 1rem; /* Ensures space between the table and the button */
+    margin-bottom: 1rem; 
   }
   
   .table-head {
@@ -55,4 +55,39 @@
     background-color: #c5c5c5;
     cursor: not-allowed;
   }
-  
+
+
+.button-container {
+  display: flex;       
+  gap: 10px;             
+  align-items: center;    
+}
+
+
+.styled-button {
+  padding: 8px 16px;              
+  background-color: #007bff;      
+  color: white;                  
+  border: none;                   
+  cursor: pointer;                
+  border-radius: 4px;             
+  font-size: 14px;                
+  text-transform: uppercase;       
+  transition: background-color 0.3s ease; 
+}
+
+
+.styled-button:hover {
+  background-color: #0056b3; 
+}
+
+
+.MuiButton-root.styled-button {
+  padding: 8px 16px; 
+  background-color: #007bff !important; 
+  color: white !important; 
+  text-transform: uppercase !important; 
+  box-shadow: none !important; 
+  border-radius: 4px !important; 
+}
+
