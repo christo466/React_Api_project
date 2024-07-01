@@ -1,7 +1,7 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getPeopleData } from "../../store/people.js";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import {
   Table,
   TableBody,
@@ -12,7 +12,7 @@ import {
   Paper,
   Button,
 } from "@mui/material";
-import "./Dashboard.css"; 
+import "./Dashboard.css";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -20,30 +20,26 @@ const Dashboard = () => {
   const peopleData = useSelector((state) => state.people.data);
   const isLoading = useSelector((state) => state.people.status);
 
-  // State to keep track of displayed rows and index for next row
   const [displayedData, setDisplayedData] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // Fetch data when component mounts
     dispatch(getPeopleData());
   }, [dispatch]);
 
   useEffect(() => {
-    // Initialize displayedData with the first three entries, if available
     if (peopleData.length > 0) {
       const initialData = peopleData.slice(0, 3);
       setDisplayedData(initialData);
-      setCurrentIndex(3); // Start after the initial three entries
+      setCurrentIndex(3);
     }
-  }, [peopleData]); // Runs when peopleData changes
+  }, [peopleData]);
 
   const navigate = useNavigate();
   const goToHome = () => {
-    navigate('/'); // Navigates to the dashboard page
+    navigate("/");
   };
   const addNextData = () => {
-    // Add the next item from peopleData to displayedData
     if (currentIndex < peopleData.length) {
       setDisplayedData((prevData) => [...prevData, peopleData[currentIndex]]);
       setCurrentIndex(currentIndex + 1);
@@ -80,20 +76,19 @@ const Dashboard = () => {
             </Table>
           </TableContainer>
           <div className="button-container">
-        <button onClick={goToHome} className="navigate-button">
-          Home
-        </button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={addNextData}
-          className="load-next-button"
-          disabled={currentIndex >= peopleData.length}
-        >
-          Load Next
-        </Button>
-      </div>
-          
+            <button onClick={goToHome} className="navigate-button">
+              Home
+            </button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={addNextData}
+              className="load-next-button"
+              disabled={currentIndex >= peopleData.length}
+            >
+              Load Next
+            </Button>
+          </div>
         </>
       )}
     </div>

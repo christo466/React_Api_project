@@ -1,8 +1,8 @@
-// import React from 'react';
+
 import  { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home'; // Import the Home component
-import Dash from './Pages/Dash'; // Import the Dash component
+import Home from './Pages/Home'; 
+import Dash from './Pages/Dash'; 
 import About from './Pages/About'; 
 import Dashboard from './Pages/Data';
 
@@ -18,7 +18,7 @@ function App() {
       const [displayedData, setDisplayedData] = useState(data.slice(0, 3));
       const [remainingData, setRemainingData] = useState(data.slice(3));
     
-      // Function to handle adding a row
+     
       const handleArrow = () => {
         if (remainingData.length > 0) {
           setDisplayedData(prevData => [...prevData, remainingData[0]]);

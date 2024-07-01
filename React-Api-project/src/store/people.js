@@ -1,39 +1,35 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getPEOPLEDATA } from '../api/peopleData';
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getPEOPLEDATA } from "../api/peopleData";
 
 const initialState = {
-  status: 'idle',
-  
-  data: []
+  status: "idle",
+
+  data: [],
 };
 
-export const getPeopleData = createAsyncThunk(
-  'peopleDatagetter',
-  async () => {
-    const response = await getPEOPLEDATA();
-    console.log(response, "response");
-    return response?.data;
-  },
-);
+export const getPeopleData = createAsyncThunk("peopleDatagetter", async () => {
+  const response = await getPEOPLEDATA();
+  console.log(response, "response");
+  return response?.data;
+});
 
 const PeopleDataSlice = createSlice({
-  name: 'peopleData',
+  name: "peopleData",
   initialState: initialState,
   reducers: {},
   extraReducers(builder) {
     builder
-      .addCase( getPeopleData.pending, (state) => {
+      .addCase(getPeopleData.pending, (state) => {
         console.log("pending");
-        state.status = 'loading';
+        state.status = "loading";
       })
-      .addCase( getPeopleData.fulfilled, (state, action) => {
-        state.status = 'succeeded';
+      .addCase(getPeopleData.fulfilled, (state, action) => {
+        state.status = "succeeded";
         console.log(action, "Action");
-        state.data = action.payload; 
+        state.data = action.payload;
       })
-      .addCase( getPeopleData.rejected, (state) => {
-        state.status = 'failed';
+      .addCase(getPeopleData.rejected, (state) => {
+        state.status = "failed";
       });
   },
 });
