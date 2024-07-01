@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getPEOPLEDATA } from "../api/peopleData";
+import { getData } from "../api/peopleData";
 
 const initialState = {
   status: "idle",
@@ -8,7 +8,7 @@ const initialState = {
 };
 
 export const getPeopleData = createAsyncThunk("peopleDatagetter", async () => {
-  const response = await getPEOPLEDATA();
+  const response = await getData();
   console.log(response, "response");
   
   return response?.data;
