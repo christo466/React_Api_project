@@ -1,11 +1,12 @@
 import axios from 'axios';
+const url = import.meta.env.VITE_API_URL
 
 const instance = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/'
+    baseURL: url
   });
 
 export const getData = () => {
-    return instance.get('users').then(
+    return instance.get('/users').then(
       (res) => {
         // console.log(res)
         return res;
@@ -15,5 +16,6 @@ export const getData = () => {
       },
     );
   };
+
 
 

@@ -76,9 +76,9 @@ const Dashboard = () => {
             </Table>
           </TableContainer>
           <div className="button-container">
-            <button onClick={goToHome} className="navigate-button">
+            <Button onClick={goToHome} className="navigate-button">
               Home
-            </button>
+            </Button>
             <Button
               variant="contained"
               color="secondary"

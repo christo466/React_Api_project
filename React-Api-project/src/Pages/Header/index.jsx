@@ -2,7 +2,9 @@
 import { Link } from 'react-router-dom';
 
 function Header() {
+  
   return (
+    <> 
     <header>
       <h1>Mind Hive</h1>
       <nav>
@@ -14,6 +16,9 @@ function Header() {
       </nav>
       <hr />
     </header>
+
+    
+    </>
   );
 }
 

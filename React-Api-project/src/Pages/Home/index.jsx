@@ -5,12 +5,13 @@ import Header from '../Header';
 import Footer from '../Footer';
 import Counter from './components/counter'
 import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function MyButton() {
   return (
-    <button>
+    <Button>
       Button
-    </button>
+    </Button>
   );
 }
 
@@ -74,7 +75,7 @@ export default function Profile() {
   }
   const navigate = useNavigate();
   const goToDashboard = () => {
-    navigate('/dashboard'); // Navigates to the dashboard page
+    navigate('/dashboard'); 
   };
 
   const listItems = products.map(product =>
@@ -95,12 +96,13 @@ export default function Profile() {
       <Header />
        
      </div>
-     {/* <div>
-     <Link to="/dashboard">People info</Link>
-     </div> */}
-     <button onClick={goToDashboard} className="navigate-button">
+     
+     <Button
+     variant="contained"
+      color="secondary"
+      onClick={goToDashboard} className="navigate-button">
           Go to People Info
-        </button>
+        </Button>
      <main className="home-content">
       <div className="bordered-div">
         <h1>{user.name}</h1>

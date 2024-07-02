@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 
 function Dash({ data, handleArrow, hasMore }) {
+
+  
   return (
     <Box
       display="flex"
